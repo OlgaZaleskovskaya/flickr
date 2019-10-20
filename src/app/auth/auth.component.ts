@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService, User } from '../service/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { stringify } from 'querystring';
+import { AlbumService } from '../service/album.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class AuthComponent implements OnInit {
   oauthVerifier: string;
   tempo: string;
   user: User;
-  constructor(private authService: AuthService, private route: ActivatedRoute) { }
+  constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router,private albumService: AlbumService) { }
 
   ngOnInit() {
 
@@ -67,7 +68,8 @@ export class AuthComponent implements OnInit {
       userName: name
     }
     this.authService.currentUser = this.user as User;
-    this.authService.getAlbums();
+    this.albumService.getAlbums();
+    this.router.navigate(['/main'])
   }
 
 }
