@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import "reset.scss";
+
+$colorPrimary: #1565c0;
+$colorPrimaryDark:#003c8f;
+$colorPrimaryLight: #5e92f3;
+$colorSecondary: #d81b60;
+$colorSecondaryyDark:#a00037;
+$colorSecondaryLight: #ff5c8d;
+
+@mixin boxShadow($left, $top, $radius, $color) {
+	box-shadow: $left $top $radius $color;
+	-webkit-box-shadow: $left $top $radius $color;
+	-moz-box-shadow: $left $top $radius $color;
+}
+
+
+
+@mixin borderRadius($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+
